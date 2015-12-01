@@ -146,10 +146,10 @@ function normalize(path) {
   if (lastC === "#") {
     return path.substring(0, last)
   }
-
+  //css结尾的路径也直接返回css路径
   return (path.substring(last - 2) === ".js" ||
       path.indexOf("?") > 0 ||
-      lastC === "/") ? path : path + ".js"
+      lastC === "/" || /\.css$/.test(path) ) ? path : path + ".js"
 }
 
 
